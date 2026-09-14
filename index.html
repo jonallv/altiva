@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<a class="pular" href="#colecao">Ir para a coleção</a>
+<a class="pular" href="#selecao">Ir para a seleção</a>
 
 <!-- ============================================================
      Cabeçalho. Transparente sobre o fundo da página.
@@ -23,10 +23,10 @@
   <div class="limite cabecalho__interno">
     <a class="marca" href="index.html">ALTIVA.</a>
     <nav class="nav" aria-label="Principal">
-      <a class="nav__item" href="#colecao">MODA</a>
-      <a class="nav__item" href="#colecao">PERFUMARIA</a>
+      <a class="nav__item" href="#moda">MODA</a>
+      <a class="nav__item" href="#perfumaria">PERFUMARIA</a>
       <a class="nav__item" href="curador.html">O CURADOR</a>
-      <a class="nav__item nav__sacola" href="#colecao">SACOLA (0)</a>
+      <a class="nav__item nav__sacola" href="#selecao">SACOLA (0)</a>
     </nav>
   </div>
 </header>
@@ -38,10 +38,10 @@
        ========================================================== -->
   <section class="hero" aria-labelledby="slogan">
     <div class="hero__texto">
-      <p class="rotulo hero__rotulo">Coleção 01 · Doze objetos</p>
+      <p class="rotulo hero__rotulo">Curadoria · Moda e perfumaria</p>
       <h1 class="display" id="slogan">Presença não<br>se explica.</h1>
       <div class="hero__acao">
-        <a class="btn btn--primario" href="#colecao">Ver a coleção</a>
+        <a class="btn btn--primario" href="#selecao">Ver a seleção</a>
         <span class="apoio">Entrega incluída.</span>
       </div>
     </div>
@@ -49,13 +49,16 @@
   </section>
 
   <!-- ==========================================================
-       Coleção. Três colunas, doze cartões, sem filtros visíveis.
+       Seleção. Duas seções, três colunas, sem filtros visíveis.
        ========================================================== -->
-  <section class="secao faixa" id="colecao" aria-labelledby="titulo-colecao">
+  <section class="secao faixa" id="selecao" aria-label="Seleção">
     <div class="limite">
 
-      <div class="colecao__cabecalho">
-        <h2 class="t1 t1--versal" id="titulo-colecao">COLEÇÃO 01. DOZE OBJETOS.</h2>
+    <div class="secao__grupo" id="moda">
+
+      <div class="selecao__cabecalho">
+        <h2 class="t1 t1--versal">MODA.</h2>
+        <p class="apoio">Nove peças.</p>
       </div>
 
       <div class="grade">
@@ -103,27 +106,6 @@
         </a>
 
         <a class="cartao" href="produto.html">
-          <div class="cartao__foto cartao__foto--noir"></div>
-          <h3 class="cartao__nome">Perfume 01</h3>
-          <p class="apoio cartao__tecnica">Íris, couro, vetiver · 50 ml</p>
-          <p class="preco cartao__preco">R$ 1.150</p>
-        </a>
-
-        <a class="cartao" href="produto.html">
-          <div class="cartao__foto cartao__foto--noir"></div>
-          <h3 class="cartao__nome">Perfume 02</h3>
-          <p class="apoio cartao__tecnica">Âmbar, resina, madeira · 50 ml</p>
-          <p class="preco cartao__preco">R$ 1.150</p>
-        </a>
-
-        <a class="cartao" href="produto.html">
-          <div class="cartao__foto cartao__foto--noir"></div>
-          <h3 class="cartao__nome">Perfume 03</h3>
-          <p class="apoio cartao__tecnica">Bergamota, cedro, musk · 50 ml</p>
-          <p class="preco cartao__preco">R$ 980</p>
-        </a>
-
-        <a class="cartao" href="produto.html">
           <div class="cartao__foto"></div>
           <h3 class="cartao__nome">Trench 07</h3>
           <p class="apoio cartao__tecnica">Algodão encerado · Inglaterra</p>
@@ -146,6 +128,41 @@
 
       </div>
     </div>
+
+    <div class="secao__grupo" id="perfumaria">
+
+      <div class="selecao__cabecalho">
+        <h2 class="t1 t1--versal">PERFUMARIA.</h2>
+        <p class="apoio">Três perfumes.</p>
+      </div>
+
+      <div class="grade">
+
+        <a class="cartao" href="produto.html">
+          <div class="cartao__foto cartao__foto--noir"></div>
+          <h3 class="cartao__nome">Perfume 01</h3>
+          <p class="apoio cartao__tecnica">Íris, couro, vetiver · 50 ml</p>
+          <p class="preco cartao__preco">R$ 1.150</p>
+        </a>
+
+        <a class="cartao" href="produto.html">
+          <div class="cartao__foto cartao__foto--noir"></div>
+          <h3 class="cartao__nome">Perfume 02</h3>
+          <p class="apoio cartao__tecnica">Âmbar, resina, madeira · 50 ml</p>
+          <p class="preco cartao__preco">R$ 1.150</p>
+        </a>
+
+        <a class="cartao" href="produto.html">
+          <div class="cartao__foto cartao__foto--noir"></div>
+          <h3 class="cartao__nome">Perfume 03</h3>
+          <p class="apoio cartao__tecnica">Bergamota, cedro, musk · 50 ml</p>
+          <p class="preco cartao__preco">R$ 980</p>
+        </a>
+
+      </div>
+    </div>
+
+    </div>
   </section>
 
 </main>
@@ -164,10 +181,10 @@
 
       <div class="rodape__listas">
         <div>
-          <p class="rotulo rodape__titulo">Coleção</p>
+          <p class="rotulo rodape__titulo">Seleção</p>
           <ul class="rodape__lista">
-            <li><a class="rodape__link" href="#colecao">Moda</a></li>
-            <li><a class="rodape__link" href="#colecao">Perfumaria</a></li>
+            <li><a class="rodape__link" href="#moda">Moda</a></li>
+            <li><a class="rodape__link" href="#perfumaria">Perfumaria</a></li>
             <li><a class="rodape__link" href="curador.html">O curador</a></li>
           </ul>
         </div>
@@ -179,18 +196,18 @@
             <li><a class="rodape__link" href="curador.html#politicas">Privacidade</a></li>
           </ul>
         </div>
-        <div>
-          <p class="rotulo rodape__titulo">Contato</p>
-          <ul class="rodape__lista">
-            <li><a class="rodape__link" href="mailto:ola@altiva.com">ola@altiva.com</a></li>
-            <li><a class="rodape__link" href="https://instagram.com/altiva" rel="noreferrer">@altiva</a></li>
-          </ul>
-        </div>
       </div>
 
     </div>
 
     <div class="rodape__legal">
+      <p class="apoio rodape__contato">
+        <a class="rodape__link" href="mailto:ola@altiva.dpdns.org">ola@altiva.dpdns.org</a>
+        <span class="rodape__sep" aria-hidden="true">·</span>
+        <a class="rodape__link" href="https://instagram.com/altiva.pick" rel="noreferrer">Instagram @altiva.pick</a>
+        <span class="rodape__sep" aria-hidden="true">·</span>
+        <a class="rodape__link" href="https://www.tiktok.com/@altiva.pick" rel="noreferrer">TikTok @altiva.pick</a>
+      </p>
       <p class="apoio">ALTIVA · Curadoria de moda e perfumaria.</p>
       <p class="apoio">Usamos cookies para o site funcionar. Só isso.</p>
     </div>
