@@ -1,0 +1,611 @@
+/* ================================================================
+   ALTIVA. — Sistema de interface
+   Baseado no Manual da Marca ALTIVA, versao 1.0, setembro 2026.
+   Sete cores. Duas fontes. Espaco vazio, linha de 1 px e o ponto.
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Space+Grotesk:wght@400;500&display=swap');
+
+/* ---------------------------------------------------------------
+   01 · Tokens
+   --------------------------------------------------------------- */
+:root{
+  /* Paleta. Nenhuma outra cor entra neste arquivo. */
+  --noir:#0B0B0C;
+  --bone:#F3F0EA;
+  --blanc:#FFFFFF;
+  --graphite:#2A2A2D;
+  --stone:#6E6961;
+  --sand:#D8D1C6;
+  --ambar:#A67052;
+
+  /* Tipografia */
+  --grotesk:"Space Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --sans:"DM Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  /* Escala de espaco, base 8 */
+  --e1:8px; --e2:16px; --e3:24px; --e4:32px;
+  --e5:48px; --e6:64px; --e7:96px; --e8:128px;
+
+  /* Grid */
+  --margem:48px;
+  --calha:24px;
+  --secao:128px;
+  --limite:1440px;
+
+  /* Movimento: 300 ms, ease-out, deslocamento de 8 px. Nada mais. */
+  --transicao:300ms cubic-bezier(.22,.61,.36,1);
+
+  /* Papeis de superficie (modo unico: Bone) */
+  --fundo:var(--bone);
+  --texto:var(--graphite);
+  --titulo:var(--noir);
+  --apoio:var(--stone);
+  --linha:var(--sand);
+}
+
+@media (max-width:900px){
+  :root{ --margem:20px; --calha:16px; --secao:80px; }
+}
+
+/* Superficie de campanha. Usada em pecas institucionais, nunca alternada
+   automaticamente pelo sistema do usuario. */
+.noir{
+  --fundo:var(--noir);
+  --texto:var(--sand);
+  --titulo:var(--bone);
+  --apoio:var(--stone);
+  --linha:var(--graphite);
+}
+
+/* ---------------------------------------------------------------
+   02 · Base
+   --------------------------------------------------------------- */
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background:var(--fundo);
+  color:var(--texto);
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:16px;
+  line-height:26px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-variant-ligatures:none;
+}
+
+@media (max-width:900px){
+  body{ font-size:15px; line-height:24px; }
+}
+
+a{ color:inherit; }
+button{ font:inherit; color:inherit; }
+h1,h2,h3,p,figure,ul{ margin:0; padding:0; }
+ul{ list-style:none; }
+
+::selection{ background:var(--noir); color:var(--bone); }
+.noir ::selection{ background:var(--bone); color:var(--noir); }
+
+:focus-visible{ outline:1px solid var(--titulo); outline-offset:4px; }
+
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *{ transition-duration:1ms !important; animation-duration:1ms !important; }
+}
+
+/* ---------------------------------------------------------------
+   03 · Estrutura
+   --------------------------------------------------------------- */
+.faixa{ padding-left:var(--margem); padding-right:var(--margem); }
+.limite{ max-width:var(--limite); margin-left:auto; margin-right:auto; }
+.secao{ padding-top:var(--secao); }
+.pular{
+  position:absolute; left:-9999px; top:0;
+  background:var(--noir); color:var(--bone);
+  padding:12px 16px; z-index:10;
+}
+.pular:focus{ left:var(--margem); top:var(--e2); }
+
+/* ---------------------------------------------------------------
+   04 · Tipografia
+   Uma so familia por bloco. Titulo em Grotesk, tudo abaixo em DM Sans.
+   --------------------------------------------------------------- */
+.display{
+  font-family:var(--grotesk);
+  font-weight:500;
+  font-size:clamp(48px,6.4vw,96px);
+  line-height:.92;
+  letter-spacing:-.02em;
+  color:var(--titulo);
+}
+
+.t1{
+  font-family:var(--grotesk);
+  font-weight:500;
+  font-size:clamp(32px,3.4vw,48px);
+  line-height:1.08;
+  letter-spacing:-.01em;
+  color:var(--titulo);
+}
+
+.t1--versal{
+  font-size:clamp(24px,2.7vw,40px);
+  letter-spacing:.02em;
+  line-height:1.2;
+}
+
+.t2{
+  font-family:var(--grotesk);
+  font-weight:500;
+  font-size:clamp(24px,2vw,28px);
+  line-height:1.14;
+  letter-spacing:-.01em;
+  color:var(--titulo);
+}
+
+.rotulo{
+  font-family:var(--grotesk);
+  font-weight:400;
+  font-size:11px;
+  line-height:16px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--apoio);
+}
+
+/* Ambar reservado a escassez real. Nunca em area grande, nunca em botao. */
+.rotulo--escassez{ color:var(--ambar); font-size:12px; }
+
+.corpo{
+  font-family:var(--sans);
+  font-weight:300;
+  max-width:64ch;
+}
+
+.apoio{
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:13px;
+  line-height:20px;
+  color:var(--apoio);
+  max-width:64ch;
+}
+
+.preco{
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:14px;
+  line-height:20px;
+  letter-spacing:.01em;
+  color:var(--titulo);
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum" 1;
+}
+
+.italico{ font-style:italic; }
+
+/* ---------------------------------------------------------------
+   05 · Logotipo
+   Space Grotesk Medium, caixa-alta, tracking +12%, um ponto final.
+   Ponto em Noir ou Bone no uso corrente. Uma ocorrencia por superficie.
+   --------------------------------------------------------------- */
+.marca{
+  font-family:var(--grotesk);
+  font-weight:500;
+  font-size:20px;
+  line-height:1;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--titulo);
+  text-decoration:none;
+  white-space:nowrap;
+  transition:color var(--transicao);
+}
+.marca:hover{ color:var(--graphite); }
+.noir .marca:hover{ color:var(--sand); }
+.marca--grande{ font-size:clamp(28px,3vw,40px); }
+
+/* ---------------------------------------------------------------
+   06 · Botoes
+   Retangular, raio zero, 44 px. Sem icone dentro do botao.
+   Nunca dois primarios na mesma tela.
+   --------------------------------------------------------------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:44px;
+  padding:0 var(--e3);
+  border:1px solid transparent;
+  border-radius:0;
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:14px;
+  line-height:20px;
+  letter-spacing:.04em;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background-color var(--transicao), color var(--transicao), border-color var(--transicao);
+}
+
+.btn--primario{ background:var(--noir); color:var(--bone); }
+.btn--primario:hover{ background:var(--graphite); }
+.noir .btn--primario{ background:var(--bone); color:var(--noir); }
+.noir .btn--primario:hover{ background:var(--sand); }
+
+.btn--secundario{ background:transparent; color:var(--titulo); border-color:var(--titulo); }
+.btn--secundario:hover{ color:var(--graphite); border-color:var(--graphite); }
+
+.btn--largo{ width:100%; }
+
+/* Terciario: texto sublinhado, 1 px, cor do texto. */
+.link{
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:14px;
+  line-height:20px;
+  color:var(--titulo);
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:4px;
+  transition:color var(--transicao);
+}
+.link:hover{ color:var(--graphite); }
+.noir .link:hover{ color:var(--sand); }
+
+/* ---------------------------------------------------------------
+   07 · Cabecalho
+   Transparente sobre o fundo da pagina. Sem borda, sem fundo.
+   --------------------------------------------------------------- */
+.cabecalho{
+  background:transparent;
+  border:0;
+  padding-top:var(--e4);
+  padding-bottom:var(--e4);
+}
+.cabecalho__interno{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:var(--e4);
+}
+.nav{
+  display:flex;
+  align-items:baseline;
+  gap:var(--e4);
+}
+.nav__item{
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:11px;
+  line-height:16px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--texto);
+  text-decoration:none;
+  transition:color var(--transicao);
+}
+.nav__item:hover,.nav__item[aria-current="page"]{ color:var(--titulo); }
+.nav__sacola{ margin-left:var(--e3); }
+
+@media (max-width:760px){
+  .cabecalho__interno{ flex-direction:column; align-items:flex-start; gap:var(--e3); }
+  .nav{ flex-wrap:wrap; gap:var(--e3); }
+  .nav__sacola{ margin-left:0; }
+}
+
+/* ---------------------------------------------------------------
+   08 · Hero
+   Metade texto, metade objeto. Um botao. Sem carrossel.
+   --------------------------------------------------------------- */
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:stretch;
+  min-height:min(76vh,720px);
+}
+.hero__texto{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:var(--e7) var(--e6) var(--e7) var(--margem);
+}
+.hero__rotulo{ margin-bottom:var(--e3); }
+.hero__acao{
+  display:flex;
+  align-items:center;
+  gap:var(--e3);
+  margin-top:var(--e5);
+  flex-wrap:wrap;
+}
+.hero__objeto{
+  background:var(--blanc);
+  border-left:1px solid var(--linha);
+}
+
+@media (max-width:900px){
+  .hero{ grid-template-columns:1fr; min-height:0; }
+  .hero__texto{
+    order:2;
+    padding:var(--e5) var(--margem) 0;
+  }
+  .hero__objeto{
+    order:1;
+    aspect-ratio:4/3;
+    border-left:0;
+    border-bottom:1px solid var(--linha);
+  }
+  .hero__acao{ margin-top:var(--e4); }
+}
+
+/* ---------------------------------------------------------------
+   09 · Colecao
+   Tres colunas no desktop, doze cartoes, sem filtros visiveis.
+   --------------------------------------------------------------- */
+.colecao__cabecalho{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:var(--e4);
+  padding-bottom:var(--e6);
+  flex-wrap:wrap;
+}
+.grade{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  column-gap:var(--calha);
+  row-gap:var(--e6);
+}
+@media (max-width:1024px){ .grade{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:640px){ .grade{ grid-template-columns:1fr; row-gap:var(--e5); } }
+
+/* Cartao de produto. Foto 3:4 em Blanc, nome, uma linha tecnica, preco.
+   Sem estrelas, sem favoritar, sem selo. */
+.cartao{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+.cartao__foto{
+  aspect-ratio:3/4;
+  background:var(--blanc);
+  border:1px solid var(--linha);
+  transition:border-color var(--transicao);
+}
+.cartao__foto--noir{ background:var(--noir); border-color:var(--noir); }
+.cartao:hover .cartao__foto{ border-color:var(--graphite); }
+.cartao__nome{
+  font-family:var(--grotesk);
+  font-weight:500;
+  font-size:18px;
+  line-height:24px;
+  letter-spacing:-.01em;
+  color:var(--titulo);
+  margin-top:var(--e3);
+  transition:color var(--transicao);
+}
+.cartao:hover .cartao__nome{ color:var(--graphite); }
+.cartao__tecnica{ margin-top:var(--e1); }
+.cartao__preco{ margin-top:var(--e2); }
+
+/* ---------------------------------------------------------------
+   10 · Pagina de produto
+   Foto fixa a esquerda, texto rolavel a direita.
+   --------------------------------------------------------------- */
+.pdp{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  column-gap:var(--e8);
+  align-items:start;
+  padding-top:var(--e5);
+}
+.pdp__midia{
+  position:sticky;
+  top:var(--e5);
+}
+.pdp__foto{
+  aspect-ratio:3/4;
+  background:var(--blanc);
+  border:1px solid var(--linha);
+}
+.pdp__texto{ padding-bottom:var(--e6); }
+.pdp__rotulo{ margin-bottom:var(--e2); }
+.pdp__nome{ margin-bottom:var(--e3); }
+.pdp__curador{ margin-bottom:var(--e4); }
+.pdp__ficha{
+  border-top:1px solid var(--linha);
+  padding-top:var(--e3);
+  margin-top:var(--e4);
+}
+.pdp__ficha dl{ margin:0; }
+.pdp__linha{
+  display:grid;
+  grid-template-columns:140px minmax(0,1fr);
+  gap:var(--e3);
+  padding:var(--e1) 0;
+}
+.pdp__linha dt{
+  font-family:var(--grotesk);
+  font-weight:400;
+  font-size:11px;
+  line-height:20px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--apoio);
+}
+.pdp__linha dd{
+  margin:0;
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:13px;
+  line-height:20px;
+  color:var(--texto);
+}
+.pdp__acao{ margin-top:var(--e5); }
+.pdp__botao{ margin-top:var(--e3); }
+.pdp__terciario{ margin-top:var(--e3); }
+.pdp__aviso{ margin-top:var(--e2); }
+
+/* Tamanhos: contorno de 1 px, raio zero, 44 px. Estado selecionado em Noir. */
+.tamanhos{
+  display:flex;
+  gap:var(--e1);
+  flex-wrap:wrap;
+  margin-top:var(--e2);
+}
+.tamanho{ position:relative; }
+.tamanho input{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  margin:0;
+  cursor:pointer;
+}
+.tamanho span{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:44px;
+  height:44px;
+  padding:0 var(--e2);
+  border:1px solid var(--linha);
+  font-family:var(--sans);
+  font-weight:500;
+  font-size:14px;
+  line-height:20px;
+  letter-spacing:.04em;
+  color:var(--titulo);
+  transition:border-color var(--transicao), background-color var(--transicao), color var(--transicao);
+}
+.tamanho input:hover + span{ border-color:var(--titulo); }
+.tamanho input:focus-visible + span{ outline:1px solid var(--titulo); outline-offset:4px; }
+.tamanho input:checked + span{
+  background:var(--noir);
+  border-color:var(--noir);
+  color:var(--bone);
+}
+.tamanho input:disabled + span{
+  color:var(--sand);
+  border-color:var(--linha);
+  cursor:default;
+}
+.tamanho input:disabled{ cursor:default; }
+
+/* Fotos adicionais: aparecem ao rolar, uma por vez. */
+.pdp__extras{ padding-top:var(--secao); }
+.extra{
+  max-width:720px;
+  margin:0 0 var(--e6);
+  aspect-ratio:3/4;
+  background:var(--blanc);
+  border:1px solid var(--linha);
+}
+.extra--noir{ background:var(--noir); border-color:var(--noir); }
+.extra:last-child{ margin-bottom:0; }
+
+@media (max-width:900px){
+  .pdp{ grid-template-columns:1fr; row-gap:var(--e5); padding-top:var(--e3); }
+  .pdp__midia{ position:static; }
+  .pdp__texto{ padding-bottom:var(--e5); }
+}
+
+/* ---------------------------------------------------------------
+   11 · Manifesto (superficie de campanha)
+   --------------------------------------------------------------- */
+.manifesto{ padding-top:var(--secao); padding-bottom:var(--secao); }
+.manifesto__verso{
+  font-family:var(--grotesk);
+  font-weight:400;
+  font-size:clamp(22px,2.4vw,32px);
+  line-height:1.4;
+  letter-spacing:-.01em;
+  color:var(--titulo);
+  max-width:46ch;
+}
+.manifesto__verso + .manifesto__verso{ margin-top:var(--e5); }
+.duas{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:var(--e8);
+  row-gap:var(--e5);
+}
+@media (max-width:900px){ .duas{ grid-template-columns:1fr; column-gap:0; } }
+
+/* ---------------------------------------------------------------
+   12 · Rodape
+   Linha fina de 1 px. Fecha a experiencia com a assinatura.
+   --------------------------------------------------------------- */
+.rodape{
+  margin-top:var(--secao);
+  border-top:1px solid var(--linha);
+  padding-top:var(--e6);
+  padding-bottom:var(--e6);
+}
+.rodape__interno{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:var(--e6);
+  align-items:start;
+}
+.rodape__assinatura{ font-family:var(--grotesk); }
+.rodape__slogan{
+  font-family:var(--grotesk);
+  font-weight:400;
+  font-size:18px;
+  line-height:28px;
+  letter-spacing:-.01em;
+  color:var(--titulo);
+  margin-top:var(--e2);
+}
+.rodape__listas{
+  display:flex;
+  gap:var(--e7);
+  flex-wrap:wrap;
+}
+.rodape__lista li + li{ margin-top:var(--e1); }
+.rodape__titulo{ margin-bottom:var(--e2); }
+.rodape__link{
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:13px;
+  line-height:20px;
+  color:var(--texto);
+  text-decoration:none;
+  transition:color var(--transicao);
+}
+.rodape__link:hover{ color:var(--titulo); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
+.rodape__legal{
+  margin-top:var(--e7);
+  padding-top:var(--e3);
+  border-top:1px solid var(--linha);
+  display:flex;
+  gap:var(--e3) var(--e6);
+  flex-wrap:wrap;
+}
+
+@media (max-width:900px){
+  .rodape__interno{ grid-template-columns:1fr; gap:var(--e5); }
+  .rodape__listas{ gap:var(--e5); }
+  .rodape__legal{ margin-top:var(--e5); }
+}
+
+/* ---------------------------------------------------------------
+   13 · Utilitarios
+   --------------------------------------------------------------- */
+.mt-1{ margin-top:var(--e1); }
+.mt-2{ margin-top:var(--e2); }
+.mt-3{ margin-top:var(--e3); }
+.mt-4{ margin-top:var(--e4); }
+.mt-5{ margin-top:var(--e5); }
+.mt-6{ margin-top:var(--e6); }
+.oculto{
+  position:absolute;
+  width:1px;height:1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  white-space:nowrap;
+}
