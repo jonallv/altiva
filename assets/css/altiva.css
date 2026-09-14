@@ -343,10 +343,11 @@ ul{ list-style:none; }
 }
 
 /* ---------------------------------------------------------------
-   09 · Colecao
-   Tres colunas no desktop, doze cartoes, sem filtros visiveis.
+   09 · Selecao
+   Secoes nomeadas, tres colunas no desktop, sem filtros visiveis.
    --------------------------------------------------------------- */
-.colecao__cabecalho{
+.secao__grupo + .secao__grupo{ margin-top:var(--secao); }
+.selecao__cabecalho{
   display:flex;
   align-items:baseline;
   justify-content:space-between;
@@ -578,6 +579,13 @@ ul{ list-style:none; }
   transition:color var(--transicao);
 }
 .rodape__link:hover{ color:var(--titulo); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
+.rodape__contato{
+  display:flex;
+  gap:var(--e2);
+  flex-wrap:wrap;
+  align-items:baseline;
+}
+.rodape__sep{ color:var(--stone); }
 .rodape__legal{
   margin-top:var(--e7);
   padding-top:var(--e3);
@@ -590,7 +598,14 @@ ul{ list-style:none; }
 @media (max-width:900px){
   .rodape__interno{ grid-template-columns:1fr; gap:var(--e5); }
   .rodape__listas{ gap:var(--e5); }
-  .rodape__legal{ margin-top:var(--e5); }
+  .rodape__contato{
+  display:flex;
+  gap:var(--e2);
+  flex-wrap:wrap;
+  align-items:baseline;
+}
+.rodape__sep{ color:var(--stone); }
+.rodape__legal{ margin-top:var(--e5); }
 }
 
 /* ---------------------------------------------------------------
