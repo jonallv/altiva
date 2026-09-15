@@ -322,9 +322,77 @@ ul{ list-style:none; }
   margin-top:var(--e5);
   flex-wrap:wrap;
 }
-.hero__objeto{
+/* Vitrine: o objeto do hero e uma sucessao de fotos reais da selecao.
+   Troca por opacidade, sem seta e sem ponto colorido. */
+.vitrine{
+  position:relative;
+  overflow:hidden;
   background:var(--blanc);
   border-left:1px solid var(--linha);
+}
+.vitrine__quadro{
+  position:absolute; inset:0;
+  display:block; overflow:hidden;
+  opacity:0; pointer-events:none;
+  transition:opacity 600ms cubic-bezier(.22,.61,.36,1);
+}
+.vitrine__quadro.is-ativo{ opacity:1; pointer-events:auto; }
+/* a faixa ALTIVA ocupa os 11,9% de baixo do cartao; o enquadramento em 38%
+   mantem o corte acima dela em qualquer proporcao de tela */
+.vitrine__img{
+  display:block;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center 38%;
+  transition:transform 1400ms cubic-bezier(.22,.61,.36,1);
+}
+.vitrine__quadro.is-ativo .vitrine__img{ transform:scale(1.02); }
+.vitrine__legenda{
+  position:absolute; z-index:2;
+  left:var(--e4); bottom:var(--e4);
+  background:var(--blanc);
+  padding:var(--e2) var(--e3) calc(var(--e2) + 2px);
+  max-width:min(78%,330px);
+}
+.vitrine__secao{ color:var(--apoio); }
+.vitrine__nome{
+  font-family:var(--grotesk); font-weight:500;
+  font-size:17px; line-height:23px; letter-spacing:-.01em;
+  color:var(--titulo); margin-top:6px;
+}
+.vitrine__preco{ margin-top:2px; }
+.vitrine__marcas{
+  position:absolute; z-index:2;
+  right:var(--e4); bottom:calc(var(--e4) + 6px);
+  display:flex; gap:10px;
+}
+.vitrine__marca{
+  width:26px; height:1px; padding:8px 0;
+  background:transparent; border:0; cursor:pointer;
+  -webkit-appearance:none; appearance:none;
+}
+.vitrine__marca::before{
+  content:""; display:block; height:1px; width:100%;
+  background:var(--sand);
+  transition:background-color var(--transicao);
+}
+.vitrine__marca.is-ativo::before,.vitrine__marca:hover::before{ background:var(--noir); }
+
+/* Revelacao ao rolar: 8 px e 300 ms, o que o manual permite. */
+.revelar{
+  opacity:0; transform:translateY(8px);
+  transition:opacity var(--transicao), transform var(--transicao);
+}
+.revelar.revelado{ opacity:1; transform:none; }
+
+/* Item de navegacao da secao que esta na tela. */
+.nav__item.is-ativo{ color:var(--titulo); }
+
+.selecao__aviso{ margin-top:var(--e2); max-width:60ch; }
+
+@media (prefers-reduced-motion: reduce){
+  .revelar{ opacity:1; transform:none; transition:none; }
+  .vitrine__img{ transition:none; }
+  .vitrine__quadro{ transition:none; }
 }
 
 @media (max-width:900px){
@@ -333,12 +401,14 @@ ul{ list-style:none; }
     order:2;
     padding:var(--e5) var(--margem) 0;
   }
-  .hero__objeto{
+  .vitrine{
     order:1;
     aspect-ratio:4/3;
     border-left:0;
     border-bottom:1px solid var(--linha);
   }
+  .vitrine__legenda{ left:var(--margem); bottom:var(--e3); }
+  .vitrine__marcas{ right:var(--margem); bottom:calc(var(--e3) + 6px); }
   .hero__acao{ margin-top:var(--e4); }
 }
 
@@ -646,3 +716,7 @@ ul{ list-style:none; }
   margin-top:var(--e2);
   max-width:34ch;
 }
+
+/* Foto real na pagina de produto. */
+.pdp__img{ width:100%; height:100%; object-fit:contain; display:block; }
+.pdp__preco{ margin-bottom:var(--e3); }
