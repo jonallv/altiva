@@ -264,5 +264,12 @@
       "imagem": "imagens/cotidiano-03.jpg",
       "razao": "Onde a chave e o relógio param à noite. Fecha nos quatro cantos e vira bolso de viagem."
     }
+  ],
+  "vitrine": [
+    "moda-04",
+    "cotidiano-02",
+    "moda-06",
+    "cotidiano-01",
+    "moda-05"
   ]
 }
