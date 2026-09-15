@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>ponte</title>
+</head>
+<body style="font:14px system-ui;padding:24px">
+<p id="s">lendo…</p>
+<script>
+(async function(){
+  var s = document.getElementById('s');
+  try{
+    var caminho = decodeURIComponent(location.hash.slice(1) || '');
+    if(!caminho) { s.textContent = 'sem caminho'; return; }
+    var r = await fetch(caminho, {cache:'reload'});
+    var buf = await r.arrayBuffer();
+    s.textContent = 'lido ' + buf.byteLength + ' bytes';
+    if (window.opener) {
+      window.opener.postMessage({ altivaPonte:true, nome: caminho.split('/').pop(), tipo: r.headers.get('content-type') || 'video/mp4', buf: buf }, '*', [buf]);
+      s.textContent += ' · enviado';
+    } else {
+      s.textContent += ' · sem opener';
+    }
+  }catch(e){ s.textContent = 'erro: ' + e.message; }
+})();
+</script>
+</body>
+</html>
