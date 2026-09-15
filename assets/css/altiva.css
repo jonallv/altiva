@@ -579,6 +579,17 @@ ul{ list-style:none; }
   transition:color var(--transicao);
 }
 .rodape__link:hover{ color:var(--titulo); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px; }
+/* Foto do produto: contida no quadro Blanc 3:4, sem cortar. */
+.cartao__foto{ display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.cartao__img{
+  width:100%; height:100%; object-fit:contain; display:block;
+  transition:transform var(--transicao);
+}
+.cartao:hover .cartao__img{ transform:scale(1.02); }
+.cartao__de{
+  text-decoration:line-through; color:var(--stone); margin-top:2px;
+}
+
 .rodape__contato{
   display:flex;
   gap:var(--e2);
