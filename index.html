@@ -402,12 +402,12 @@
     });
     for (var id in itens) itens[id].classList.toggle('is-ativo', id === atual);
   }
+  /* setTimeout e nao requestAnimationFrame: rAF nao dispara em aba sem pintura,
+     e cartao invisivel e pior do que cartao sem anima. Sao 16 elementos. */
   function agenda(){
     if (pendente) return;
     pendente = true;
-    /* chamar requestAnimationFrame destacado do window da Illegal invocation */
-    if (window.requestAnimationFrame) window.requestAnimationFrame(varre);
-    else setTimeout(varre, 16);
+    setTimeout(varre, 60);
   }
 
   varre();
