@@ -405,7 +405,9 @@
   function agenda(){
     if (pendente) return;
     pendente = true;
-    (window.requestAnimationFrame || setTimeout)(varre);
+    /* chamar requestAnimationFrame destacado do window da Illegal invocation */
+    if (window.requestAnimationFrame) window.requestAnimationFrame(varre);
+    else setTimeout(varre, 16);
   }
 
   varre();
