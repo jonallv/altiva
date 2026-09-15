@@ -102,6 +102,161 @@ def hero(cat, vivos):
                    ROTULO[primeiro['secao']], primeiro['nome'], primeiro['preco'],
                    '\n'.join(marcas))
 
+
+# ---------------------------------------------------------------- redirecionadores
+# Regra da marca: todo post carrega link de afiliado, e o link precisa ser curto,
+# digitavel e clicavel. Cada produto ganha altiva.dpdns.org/r/<slug>, que manda
+# direto para a loja. Se o anuncio cair, muda-se o destino aqui e o post continua valendo.
+
+REDIR = """<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>%(nome)s &middot; ALTIVA.</title>
+<meta http-equiv="refresh" content="0; url=%(link)s">
+<link rel="canonical" href="%(link)s">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/altiva.css">
+<style>
+  body{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
+  .ponte{padding:var(--margem)}
+  .ponte__marca{font-family:var(--grotesk);font-weight:500;font-size:28px;letter-spacing:.2em;color:var(--titulo)}
+  .ponte__rule{width:120px;height:1px;background:var(--linha);margin:var(--e4) auto}
+</style>
+</head>
+<body class="noir">
+  <div class="ponte">
+    <p class="ponte__marca">ALTIVA.</p>
+    <div class="ponte__rule"></div>
+    <p class="corpo">%(nome)s</p>
+    <p class="apoio mt-2">Levando voc&ecirc; at&eacute; a %(loja)s&hellip;</p>
+    <p class="mt-4"><a class="btn btn--primario" href="%(link)s" rel="noopener sponsored nofollow">Abrir agora</a></p>
+    <p class="apoio mt-4">Link de afiliado. Voc&ecirc; paga o mesmo pre&ccedil;o.</p>
+  </div>
+<script>location.replace("%(link)s");</script>
+</body>
+</html>
+"""
+
+HUB_LINHA = """      <a class="atalho" href="%(link)s" target="_blank" rel="noopener sponsored nofollow">
+        <span class="atalho__nome">%(nome)s</span>
+        <span class="atalho__meta">%(tecnica)s</span>
+        <span class="atalho__preco">%(preco)s</span>
+      </a>"""
+
+HUB = """<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A sele&ccedil;&atilde;o &middot; ALTIVA.</title>
+<meta name="description" content="Todos os objetos da sele&ccedil;&atilde;o ALTIVA, cada um abrindo direto na loja.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/altiva.css">
+<style>
+  .hub{max-width:560px;margin:0 auto;padding:var(--e6) var(--margem) var(--e7)}
+  .hub__marca{font-family:var(--grotesk);font-weight:500;font-size:26px;letter-spacing:.2em;color:var(--titulo);display:block;text-align:center}
+  .hub__linha{width:120px;height:1px;background:var(--linha);margin:var(--e3) auto var(--e5)}
+  .hub__secao{margin-top:var(--e5)}
+  .atalho{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px var(--e3);
+    padding:var(--e3) 0;border-bottom:1px solid var(--linha);text-decoration:none;
+    transition:opacity var(--transicao)}
+  .atalho:hover{opacity:.62}
+  .atalho__nome{font-family:var(--grotesk);font-weight:500;font-size:17px;color:var(--titulo)}
+  .atalho__preco{font-family:var(--sans);font-weight:400;font-size:15px;color:var(--titulo);text-align:right;align-self:center;grid-row:span 2}
+  .atalho__meta{font-family:var(--sans);font-weight:300;font-size:13px;color:var(--apoio)}
+</style>
+</head>
+<body class="noir">
+<main class="hub">
+  <a class="hub__marca" href="../index.html">ALTIVA.</a>
+  <div class="hub__linha"></div>
+  <p class="apoio" style="text-align:center">Cada objeto abre direto na loja.<br>Link de afiliado: voc&ecirc; paga o mesmo pre&ccedil;o.</p>
+%(secoes)s
+  <p class="mt-6" style="text-align:center"><a class="link" href="../index.html">Ver a boutique</a></p>
+</main>
+</body>
+</html>
+"""
+
+# O GitHub Pages nao cria diretorio bonito sem Jekyll, entao quem resolve
+# /r/<slug> e o 404.html: ele le o caminho, acha o slug no mapa e redireciona.
+# Um arquivo so, URL limpa, e slug errado cai no hub em vez de dar erro.
+ROTEADOR = """<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ALTIVA.</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/altiva.css">
+<style>
+  body{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
+  .ponte{padding:var(--margem);max-width:420px}
+  .ponte__marca{font-family:var(--grotesk);font-weight:500;font-size:28px;letter-spacing:.2em;color:var(--titulo)}
+  .ponte__rule{width:120px;height:1px;background:var(--linha);margin:var(--e4) auto}
+</style>
+<script>
+(function(){
+  var mapa = %(mapa)s;
+  var p = location.pathname.replace(/\/+$/,'').split('/');
+  if (p.length >= 3 && p[p.length-2] === 'r') {
+    var alvo = mapa[p[p.length-1].toLowerCase()];
+    if (alvo) { location.replace(alvo); return; }
+    location.replace('/r/'); return;
+  }
+  if (p[p.length-1] === 'r') { location.replace('/r/'); return; }
+  window.__perdido = true;
+})();
+</script>
+</head>
+<body class="noir">
+  <div class="ponte">
+    <p class="ponte__marca">ALTIVA.</p>
+    <div class="ponte__rule"></div>
+    <p class="corpo" id="recado">Levando voc&ecirc; at&eacute; a loja&hellip;</p>
+    <p class="mt-4"><a class="btn btn--primario" href="/r/">Ver a sele&ccedil;&atilde;o</a></p>
+    <p class="apoio mt-4">Links de compra s&atilde;o de afiliado. Voc&ecirc; paga o mesmo pre&ccedil;o.</p>
+  </div>
+<script>
+if (window.__perdido) document.getElementById('recado').textContent = 'Esta p\u00e1gina n\u00e3o existe.';
+</script>
+</body>
+</html>
+"""
+
+def redirecionadores(cat, vivos):
+    raiz = os.path.join(BASE, 'r')
+    if not os.path.isdir(raiz):
+        os.makedirs(raiz)
+    for p in vivos:
+        slug = p.get('slug') or p['id']
+        pasta = os.path.join(raiz, slug)
+        if not os.path.isdir(pasta):
+            os.makedirs(pasta)
+        io.open(os.path.join(pasta, 'index.html'), 'w', encoding='utf-8').write(
+            REDIR % {'nome': p['nome'], 'link': p['url_afiliado'],
+                     'loja': 'Shopee' if p['loja'] == 'shopee' else 'Mercado Livre'})
+    partes = []
+    for secao in cat['secoes']:
+        itens = [p for p in vivos if p['secao'] == secao]
+        if not itens:
+            continue
+        linhas = '\n'.join(HUB_LINHA % {'link': p['url_afiliado'], 'nome': p['nome'],
+                                        'tecnica': p['tecnica'], 'preco': p['preco']} for p in itens)
+        partes.append('  <section class="hub__secao">\n    <p class="rotulo">%s</p>\n%s\n  </section>'
+                      % (ROTULO[secao], linhas))
+    io.open(os.path.join(raiz, 'index.html'), 'w', encoding='utf-8').write(HUB % {'secoes': '\n'.join(partes)})
+    mapa = json.dumps(dict((p.get('slug') or p['id'], p['url_afiliado']) for p in vivos),
+                      ensure_ascii=False, indent=2)
+    io.open(os.path.join(BASE, '404.html'), 'w', encoding='utf-8').write(ROTEADOR % {'mapa': mapa})
+    return len(vivos)
+
+
 def main():
     cat   = json.load(io.open(CAT, encoding='utf-8'))
     html  = io.open(IDX, encoding='utf-8').read()
@@ -128,6 +283,8 @@ def main():
     fim = html.index('</main>') + len('</main>')
     io.open(IDX, 'w', encoding='utf-8').write(html[:ini] + novo + html[fim:])
 
+    n = redirecionadores(cat, vivos)
+    print('r/ gerado: %d redirecionadores + hub' % n)
     print('index.html reescrito: %d produtos, vitrine com %d fotos'
           % (len(vivos), len([i for i in cat.get('vitrine', []) if any(p['id'] == i for p in vivos)])))
     if fora:

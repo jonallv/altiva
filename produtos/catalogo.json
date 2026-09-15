@@ -22,7 +22,8 @@
       "url_afiliado": "https://meli.la/2CSTyG4",
       "imagem_origem": "https://http2.mlstatic.com/D_NQ_NP_2X_866798-MLB116172126588_092026-F.webp",
       "imagem": "imagens/moda-01.jpg",
-      "razao": "Cai sem forçar e some no pé. O gel faz o trabalho que ninguém vê."
+      "razao": "Cai sem forçar e some no pé. O gel faz o trabalho que ninguém vê.",
+      "slug": "kenner"
     },
     {
       "id": "moda-02",
@@ -38,7 +39,8 @@
       "url_afiliado": "https://meli.la/1Yf7Lys",
       "imagem_origem": "https://http2.mlstatic.com/D_NQ_NP_2X_696669-MLU78847808372_092024-F.webp",
       "imagem": "imagens/moda-02.jpg",
-      "razao": "Cabe no bolso da frente. Couro que escurece com o uso, não descasca."
+      "razao": "Cabe no bolso da frente. Couro que escurece com o uso, não descasca.",
+      "slug": "carteira"
     },
     {
       "id": "moda-03",
@@ -54,7 +56,8 @@
       "url_afiliado": "https://meli.la/12cT33s",
       "imagem_origem": "https://http2.mlstatic.com/D_NQ_NP_2X_929990-MLA113350729097_062026-F.webp",
       "imagem": "imagens/moda-03.jpg",
-      "razao": "Armação fina de metal. Polarizada de verdade, não só escura."
+      "razao": "Armação fina de metal. Polarizada de verdade, não só escura.",
+      "slug": "oculos"
     },
     {
       "id": "moda-04",
@@ -70,7 +73,8 @@
       "url_afiliado": "https://s.shopee.com.br/LnErhIjz7",
       "imagem_origem": "",
       "imagem": "imagens/moda-04.jpg",
-      "razao": "A Fasolo faz calçado há décadas e a fivela mostra isso. Couro legítimo, sem verniz."
+      "razao": "A Fasolo faz calçado há décadas e a fivela mostra isso. Couro legítimo, sem verniz.",
+      "slug": "cinto"
     },
     {
       "id": "moda-05",
@@ -86,7 +90,8 @@
       "url_afiliado": "https://s.shopee.com.br/3B7QEyJkEI",
       "imagem_origem": "",
       "imagem": "imagens/moda-05.jpg",
-      "razao": "Linho com algodão: amassa menos, respira igual. Manga dobrada até o cotovelo."
+      "razao": "Linho com algodão: amassa menos, respira igual. Manga dobrada até o cotovelo.",
+      "slug": "camisa"
     },
     {
       "id": "moda-06",
@@ -102,7 +107,8 @@
       "url_afiliado": "https://s.shopee.com.br/5folDfL0CJ",
       "imagem_origem": "",
       "imagem": "imagens/moda-06.jpg",
-      "razao": "Mostrador limpo: sem cronógrafo, sem data. Só a hora e o couro."
+      "razao": "Mostrador limpo: sem cronógrafo, sem data. Só a hora e o couro.",
+      "slug": "relogio"
     },
     {
       "id": "perfumaria-01",
@@ -118,7 +124,8 @@
       "url_afiliado": "https://meli.la/1RJn6Kc",
       "imagem_origem": "https://http2.mlstatic.com/D_NQ_NP_2X_820790-MLA111225511781_052026-F.webp",
       "imagem": "imagens/perfumaria-01.jpg",
-      "razao": "Canela, baunilha e tâmara. Fica depois que você sai."
+      "razao": "Canela, baunilha e tâmara. Fica depois que você sai.",
+      "slug": "khamrah"
     },
     {
       "id": "perfumaria-02",
@@ -134,7 +141,8 @@
       "url_afiliado": "https://meli.la/2N1nED2",
       "imagem_origem": "https://http2.mlstatic.com/D_NQ_NP_2X_887864-MLB108264754941_032026-F.webp",
       "imagem": "imagens/perfumaria-02.jpg",
-      "razao": "Abre cítrico e fecha em fumaça. O mais reconhecível da casa."
+      "razao": "Abre cítrico e fecha em fumaça. O mais reconhecível da casa.",
+      "slug": "intense"
     },
     {
       "id": "perfumaria-03",
@@ -150,7 +158,8 @@
       "url_afiliado": "https://meli.la/2AQYT85",
       "imagem_origem": "https://http2.mlstatic.com/D_NQ_NP_2X_916194-MLA114865292471_072026-F.webp",
       "imagem": "imagens/perfumaria-03.jpg",
-      "razao": "Aquático brasileiro, sem doçura. Serve de manhã e não pesa."
+      "razao": "Aquático brasileiro, sem doçura. Serve de manhã e não pesa.",
+      "slug": "kaiak"
     },
     {
       "id": "perfumaria-04",
@@ -166,7 +175,8 @@
       "url_afiliado": "https://s.shopee.com.br/6fhISEnuqT",
       "imagem_origem": "",
       "imagem": "imagens/perfumaria-04.jpg",
-      "razao": "Tabaco, bergamota e couro. O irmão escuro do Khamrah."
+      "razao": "Tabaco, bergamota e couro. O irmão escuro do Khamrah.",
+      "slug": "asad"
     },
     {
       "id": "perfumaria-05",
@@ -182,7 +192,8 @@
       "url_afiliado": "https://s.shopee.com.br/9fKu1mp1Wm",
       "imagem_origem": "",
       "imagem": "imagens/perfumaria-05.jpg",
-      "razao": "Orquídea e baunilha em cima de heliotrópio. Doce que não enjoa."
+      "razao": "Orquídea e baunilha em cima de heliotrópio. Doce que não enjoa.",
+      "slug": "yara"
     },
     {
       "id": "perfumaria-06",
@@ -198,7 +209,8 @@
       "url_afiliado": "https://s.shopee.com.br/6Al1nIyDMT",
       "imagem_origem": "",
       "imagem": "imagens/perfumaria-06.jpg",
-      "razao": "Âmbar e oud em dose cheia. Duas borrifadas bastam para o dia."
+      "razao": "Âmbar e oud em dose cheia. Duas borrifadas bastam para o dia.",
+      "slug": "amber"
     },
     {
       "id": "perfumaria-07",
@@ -214,7 +226,8 @@
       "url_afiliado": "https://s.shopee.com.br/6L4Rzbxa1W",
       "imagem_origem": "",
       "imagem": "imagens/perfumaria-07.jpg",
-      "razao": "Mais fresco que o Intense, mesma assinatura. Unissex sem ser neutro."
+      "razao": "Mais fresco que o Intense, mesma assinatura. Unissex sem ser neutro.",
+      "slug": "milestone"
     },
     {
       "id": "cotidiano-01",
@@ -230,7 +243,8 @@
       "url_afiliado": "https://s.shopee.com.br/6VNsBuwwgZ",
       "imagem_origem": "",
       "imagem": "imagens/cotidiano-01.jpg",
-      "razao": "Cem gramas, tampa de madeira, pote que sobra depois. Acende e a sala muda."
+      "razao": "Cem gramas, tampa de madeira, pote que sobra depois. Acende e a sala muda.",
+      "slug": "vela"
     },
     {
       "id": "cotidiano-02",
@@ -246,7 +260,8 @@
       "url_afiliado": "https://s.shopee.com.br/6fhIODwJLc",
       "imagem_origem": "",
       "imagem": "imagens/cotidiano-02.jpg",
-      "razao": "Sem fio, três temperaturas, toque para acender. Vai da mesa à cabeceira."
+      "razao": "Sem fio, três temperaturas, toque para acender. Vai da mesa à cabeceira.",
+      "slug": "luminaria"
     },
     {
       "id": "cotidiano-03",
@@ -262,7 +277,8 @@
       "url_afiliado": "https://s.shopee.com.br/6q0iaWvg0f",
       "imagem_origem": "",
       "imagem": "imagens/cotidiano-03.jpg",
-      "razao": "Onde a chave e o relógio param à noite. Fecha nos quatro cantos e vira bolso de viagem."
+      "razao": "Onde a chave e o relógio param à noite. Fecha nos quatro cantos e vira bolso de viagem.",
+      "slug": "bandeja"
     }
   ],
   "vitrine": [
