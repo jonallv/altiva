@@ -321,6 +321,18 @@
     var preco = v.querySelector('.vitrine__preco');
     var i = 0, parado = false, timer = null;
 
+    /* imagens fora do quadro ativo ficam com opacidade 0 e o lazy nunca dispara,
+       entao forcamos o carregamento assim que a pagina termina de carregar */
+    function aquece(){
+      quadros.forEach(function(q){
+        var im = q.querySelector('img');
+        if (im && im.loading === 'lazy') im.loading = 'eager';
+      });
+    }
+    if (document.readyState === 'complete') aquece();
+    else window.addEventListener('load', aquece);
+
+
     function mostra(n){
       i = (n + quadros.length) % quadros.length;
       quadros.forEach(function(q, k){
