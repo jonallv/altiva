@@ -362,25 +362,11 @@
     document.addEventListener('visibilitychange', function(){ document.hidden ? desliga() : liga(); });
   }
 
-  /* --- revelacao ao rolar --- */
+  /* --- revelacao ao rolar e secao ativa na navegacao ---
+     Sem IntersectionObserver: um unico handler no scroll, com rAF.
+     Observer perdia cartao quando a rolagem era rapida, e cartao invisivel
+     e pior que cartao sem animacao. */
   var alvos = [].slice.call(document.querySelectorAll('.revelar'));
-  if (!alvos.length) { /* nada */ }
-  else if (reduz || !('IntersectionObserver' in window)) {
-    alvos.forEach(function(e){ e.classList.add('revelado'); });
-  } else {
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if (!e.isIntersecting) return;
-        var irmaos = [].slice.call(e.target.parentNode.children);
-        e.target.style.transitionDelay = Math.min(irmaos.indexOf(e.target), 5) * 60 + 'ms';
-        e.target.classList.add('revelado');
-        io.unobserve(e.target);
-      });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    alvos.forEach(function(e){ io.observe(e); });
-  }
-
-  /* --- secao ativa na navegacao --- */
   var itens = {};
   [].slice.call(document.querySelectorAll('.nav__item')).forEach(function(a){
     var m = (a.getAttribute('href') || '').match(/#([a-z]+)$/);
@@ -389,15 +375,45 @@
   var secoes = ['moda','perfumaria','cotidiano']
     .map(function(id){ return document.getElementById(id); })
     .filter(Boolean);
-  if (secoes.length && 'IntersectionObserver' in window) {
-    var io2 = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        var a = itens[e.target.id];
-        if (a) a.classList.toggle('is-ativo', e.isIntersecting && e.intersectionRatio > 0.15);
-      });
-    }, { threshold: [0, 0.15, 0.5] });
-    secoes.forEach(function(s){ io2.observe(s); });
+
+  if (reduz) {
+    alvos.forEach(function(e){ e.classList.add('revelado'); });
   }
+
+  var pendente = false;
+  function varre(){
+    pendente = false;
+    var alturaJanela = window.innerHeight || document.documentElement.clientHeight;
+
+    if (!reduz) {
+      for (var k = alvos.length - 1; k >= 0; k--) {
+        var e = alvos[k];
+        if (e.getBoundingClientRect().top < alturaJanela * 0.92) {
+          e.classList.add('revelado');
+          alvos.splice(k, 1);
+        }
+      }
+    }
+
+    var meio = alturaJanela * 0.35, atual = null;
+    secoes.forEach(function(sec){
+      var r = sec.getBoundingClientRect();
+      if (r.top <= meio && r.bottom > meio) atual = sec.id;
+    });
+    for (var id in itens) itens[id].classList.toggle('is-ativo', id === atual);
+  }
+  function agenda(){
+    if (pendente) return;
+    pendente = true;
+    (window.requestAnimationFrame || setTimeout)(varre);
+  }
+
+  varre();
+  window.addEventListener('scroll', agenda, { passive: true });
+  window.addEventListener('resize', agenda);
+  window.addEventListener('load', varre);
+  /* rede de seguranca: nada fica invisivel para sempre */
+  setTimeout(function(){ alvos.forEach(function(e){ e.classList.add('revelado'); }); }, 6000);
 })();
 </script>
 
