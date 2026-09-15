@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ALTIVA.</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/altiva.css">
+<style>
+  body{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
+  .ponte{padding:var(--margem);max-width:420px}
+  .ponte__marca{font-family:var(--grotesk);font-weight:500;font-size:28px;letter-spacing:.2em;color:var(--titulo)}
+  .ponte__rule{width:120px;height:1px;background:var(--linha);margin:var(--e4) auto}
+</style>
+<script>
+(function(){
+  var mapa = {
+  "kenner": "https://meli.la/2CSTyG4",
+  "carteira": "https://meli.la/1Yf7Lys",
+  "oculos": "https://meli.la/12cT33s",
+  "cinto": "https://s.shopee.com.br/LnErhIjz7",
+  "camisa": "https://s.shopee.com.br/3B7QEyJkEI",
+  "relogio": "https://s.shopee.com.br/5folDfL0CJ",
+  "khamrah": "https://meli.la/1RJn6Kc",
+  "intense": "https://meli.la/2N1nED2",
+  "kaiak": "https://meli.la/2AQYT85",
+  "asad": "https://s.shopee.com.br/6fhISEnuqT",
+  "yara": "https://s.shopee.com.br/9fKu1mp1Wm",
+  "amber": "https://s.shopee.com.br/6Al1nIyDMT",
+  "milestone": "https://s.shopee.com.br/6L4Rzbxa1W",
+  "vela": "https://s.shopee.com.br/6VNsBuwwgZ",
+  "luminaria": "https://s.shopee.com.br/6fhIODwJLc",
+  "bandeja": "https://s.shopee.com.br/6q0iaWvg0f"
+};
+  var p = location.pathname.replace(/\/+$/,'').split('/');
+  if (p.length >= 3 && p[p.length-2] === 'r') {
+    var alvo = mapa[p[p.length-1].toLowerCase()];
+    if (alvo) { location.replace(alvo); return; }
+    location.replace('/r/'); return;
+  }
+  if (p[p.length-1] === 'r') { location.replace('/r/'); return; }
+  window.__perdido = true;
+})();
+</script>
+</head>
+<body class="noir">
+  <div class="ponte">
+    <p class="ponte__marca">ALTIVA.</p>
+    <div class="ponte__rule"></div>
+    <p class="corpo" id="recado">Levando voc&ecirc; at&eacute; a loja&hellip;</p>
+    <p class="mt-4"><a class="btn btn--primario" href="/r/">Ver a sele&ccedil;&atilde;o</a></p>
+    <p class="apoio mt-4">Links de compra s&atilde;o de afiliado. Voc&ecirc; paga o mesmo pre&ccedil;o.</p>
+  </div>
+<script>
+if (window.__perdido) document.getElementById('recado').textContent = 'Esta página não existe.';
+</script>
+</body>
+</html>
