@@ -635,3 +635,14 @@ ul{ list-style:none; }
   clip:rect(0 0 0 0);
   white-space:nowrap;
 }
+
+/* Nota do curador no cartao. Uma frase, duas linhas no maximo. */
+.cartao__razao{
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:14px;
+  line-height:20px;
+  color:var(--apoio);
+  margin-top:var(--e2);
+  max-width:34ch;
+}
