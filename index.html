@@ -27,33 +27,63 @@
       <a class="nav__item" href="#perfumaria">PERFUMARIA</a>
       <a class="nav__item" href="#cotidiano">COTIDIANO</a>
       <a class="nav__item" href="curador.html">O CURADOR</a>
-      <a class="nav__item nav__sacola" href="#selecao">SACOLA (0)</a>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <!-- ==========================================================
-       Hero. Metade texto, metade objeto. Um botão. Sem carrossel.
-       ========================================================== -->
   <section class="hero" aria-labelledby="slogan">
     <div class="hero__texto">
-      <p class="rotulo hero__rotulo">Moda · Perfumaria · Cotidiano</p>
-      <h1 class="display" id="slogan">Presença não<br>se explica.</h1>
+      <p class="rotulo hero__rotulo">Moda &middot; Perfumaria &middot; Cotidiano</p>
+      <h1 class="display" id="slogan">Presen&ccedil;a n&atilde;o<br>se explica.</h1>
       <div class="hero__acao">
-        <a class="btn btn--primario" href="#selecao">Ver a seleção</a>
-        <span class="apoio">Entrega incluída.</span>
+        <a class="btn btn--primario" href="#selecao">Ver a sele&ccedil;&atilde;o</a>
+        <span class="apoio">Dezesseis objetos. A compra acontece na loja de origem.</span>
       </div>
     </div>
-    <div class="hero__objeto" role="img" aria-label="Casaco e frasco sobre fundo Blanc"></div>
+
+    <div class="vitrine" id="vitrine">
+      <a class="vitrine__quadro is-ativo" href="https://s.shopee.com.br/LnErhIjz7" target="_blank" rel="noopener sponsored nofollow"
+         data-secao="MODA." data-nome="Cinto Fasolo" data-preco="R$ 60,99" aria-label="Cinto Fasolo, R$ 60,99, abre na loja">
+        <img class="vitrine__img" src="produtos/imagens/moda-04.jpg" alt="Cinto Fasolo">
+      </a>
+      <a class="vitrine__quadro" href="https://s.shopee.com.br/6fhIODwJLc" target="_blank" rel="noopener sponsored nofollow"
+         data-secao="COTIDIANO." data-nome="Luminária de cúpula" data-preco="R$ 47,92" aria-label="Luminária de cúpula, R$ 47,92, abre na loja">
+        <img class="vitrine__img" src="produtos/imagens/cotidiano-02.jpg" alt="Luminária de cúpula" loading="lazy">
+      </a>
+      <a class="vitrine__quadro" href="https://s.shopee.com.br/5folDfL0CJ" target="_blank" rel="noopener sponsored nofollow"
+         data-secao="MODA." data-nome="Relógio minimalista" data-preco="R$ 28,88" aria-label="Relógio minimalista, R$ 28,88, abre na loja">
+        <img class="vitrine__img" src="produtos/imagens/moda-06.jpg" alt="Relógio minimalista" loading="lazy">
+      </a>
+      <a class="vitrine__quadro" href="https://s.shopee.com.br/6VNsBuwwgZ" target="_blank" rel="noopener sponsored nofollow"
+         data-secao="COTIDIANO." data-nome="Vela aromática" data-preco="R$ 19,90" aria-label="Vela aromática, R$ 19,90, abre na loja">
+        <img class="vitrine__img" src="produtos/imagens/cotidiano-01.jpg" alt="Vela aromática" loading="lazy">
+      </a>
+      <a class="vitrine__quadro" href="https://s.shopee.com.br/3B7QEyJkEI" target="_blank" rel="noopener sponsored nofollow"
+         data-secao="MODA." data-nome="Camisa de linho" data-preco="R$ 79,99" aria-label="Camisa de linho, R$ 79,99, abre na loja">
+        <img class="vitrine__img" src="produtos/imagens/moda-05.jpg" alt="Camisa de linho" loading="lazy">
+      </a>
+      <div class="vitrine__legenda">
+        <p class="rotulo vitrine__secao">MODA.</p>
+        <p class="vitrine__nome">Cinto Fasolo</p>
+        <p class="apoio vitrine__preco">R$ 60,99</p>
+      </div>
+      <div class="vitrine__marcas">
+        <button class="vitrine__marca is-ativo" type="button" aria-label="Ver Cinto Fasolo"></button>
+        <button class="vitrine__marca" type="button" aria-label="Ver Luminária de cúpula"></button>
+        <button class="vitrine__marca" type="button" aria-label="Ver Relógio minimalista"></button>
+        <button class="vitrine__marca" type="button" aria-label="Ver Vela aromática"></button>
+        <button class="vitrine__marca" type="button" aria-label="Ver Camisa de linho"></button>
+      </div>
+    </div>
   </section>
 
-  <!-- ==========================================================
-       Seleção. Duas seções, três colunas, sem filtros visíveis.
-       ========================================================== -->
-  <section class="secao faixa" id="selecao" aria-label="Seleção">
+  <section class="secao faixa" id="selecao" aria-label="Sele&ccedil;&atilde;o">
     <div class="limite">
+
+      <p class="apoio selecao__aviso">Cada objeto abre na loja onde ele &eacute; vendido.
+      A ALTIVA ganha comiss&atilde;o por l&aacute;; voc&ecirc; paga o mesmo pre&ccedil;o.</p>
 
     <div class="secao__grupo" id="moda">
 
@@ -64,7 +94,7 @@
 
       <div class="grade">
 
-        <a class="cartao" href="https://meli.la/2CSTyG4" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://meli.la/2CSTyG4" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/moda-01.jpg" alt="Chinelo Kenner New Summer" loading="lazy"></div>
           <h3 class="cartao__nome">Chinelo Kenner New Summer</h3>
           <p class="apoio cartao__tecnica">Borracha com gel · Brasil</p>
@@ -73,7 +103,7 @@
           <p class="cartao__razao">Cai sem forçar e some no pé. O gel faz o trabalho que ninguém vê.</p>
         </a>
 
-        <a class="cartao" href="https://meli.la/1Yf7Lys" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://meli.la/1Yf7Lys" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/moda-02.jpg" alt="Carteira slim BellVolpe" loading="lazy"></div>
           <h3 class="cartao__nome">Carteira slim BellVolpe</h3>
           <p class="apoio cartao__tecnica">Couro legítimo · Marrom</p>
@@ -81,7 +111,7 @@
           <p class="cartao__razao">Cabe no bolso da frente. Couro que escurece com o uso, não descasca.</p>
         </a>
 
-        <a class="cartao" href="https://meli.la/12cT33s" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://meli.la/12cT33s" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/moda-03.jpg" alt="Óculos Aoron polarizado" loading="lazy"></div>
           <h3 class="cartao__nome">Óculos Aoron polarizado</h3>
           <p class="apoio cartao__tecnica">Metal, lente UV400 · Preto</p>
@@ -89,7 +119,7 @@
           <p class="cartao__razao">Armação fina de metal. Polarizada de verdade, não só escura.</p>
         </a>
 
-        <a class="cartao" href="https://s.shopee.com.br/LnErhIjz7" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://s.shopee.com.br/LnErhIjz7" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/moda-04.jpg" alt="Cinto Fasolo" loading="lazy"></div>
           <h3 class="cartao__nome">Cinto Fasolo</h3>
           <p class="apoio cartao__tecnica">Couro legítimo · Social</p>
@@ -97,7 +127,7 @@
           <p class="cartao__razao">A Fasolo faz calçado há décadas e a fivela mostra isso. Couro legítimo, sem verniz.</p>
         </a>
 
-        <a class="cartao" href="https://s.shopee.com.br/3B7QEyJkEI" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://s.shopee.com.br/3B7QEyJkEI" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/moda-05.jpg" alt="Camisa de linho" loading="lazy"></div>
           <h3 class="cartao__nome">Camisa de linho</h3>
           <p class="apoio cartao__tecnica">Linho e algodão · Manga longa</p>
@@ -105,7 +135,7 @@
           <p class="cartao__razao">Linho com algodão: amassa menos, respira igual. Manga dobrada até o cotovelo.</p>
         </a>
 
-        <a class="cartao" href="https://s.shopee.com.br/5folDfL0CJ" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://s.shopee.com.br/5folDfL0CJ" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/moda-06.jpg" alt="Relógio minimalista" loading="lazy"></div>
           <h3 class="cartao__nome">Relógio minimalista</h3>
           <p class="apoio cartao__tecnica">Quartzo · Pulseira de couro</p>
@@ -125,7 +155,7 @@
 
       <div class="grade">
 
-        <a class="cartao" href="https://meli.la/1RJn6Kc" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://meli.la/1RJn6Kc" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/perfumaria-01.jpg" alt="Lattafa Khamrah" loading="lazy"></div>
           <h3 class="cartao__nome">Lattafa Khamrah</h3>
           <p class="apoio cartao__tecnica">Eau de parfum · 100 ml</p>
@@ -134,7 +164,7 @@
           <p class="cartao__razao">Canela, baunilha e tâmara. Fica depois que você sai.</p>
         </a>
 
-        <a class="cartao" href="https://meli.la/2N1nED2" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://meli.la/2N1nED2" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/perfumaria-02.jpg" alt="Armaf Club de Nuit Intense" loading="lazy"></div>
           <h3 class="cartao__nome">Armaf Club de Nuit Intense</h3>
           <p class="apoio cartao__tecnica">Eau de toilette · 105 ml</p>
@@ -142,7 +172,7 @@
           <p class="cartao__razao">Abre cítrico e fecha em fumaça. O mais reconhecível da casa.</p>
         </a>
 
-        <a class="cartao" href="https://meli.la/2AQYT85" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://meli.la/2AQYT85" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/perfumaria-03.jpg" alt="Natura Kaiak Ultra" loading="lazy"></div>
           <h3 class="cartao__nome">Natura Kaiak Ultra</h3>
           <p class="apoio cartao__tecnica">Colônia · 100 ml</p>
@@ -150,7 +180,7 @@
           <p class="cartao__razao">Aquático brasileiro, sem doçura. Serve de manhã e não pesa.</p>
         </a>
 
-        <a class="cartao" href="https://s.shopee.com.br/6fhISEnuqT" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://s.shopee.com.br/6fhISEnuqT" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/perfumaria-04.jpg" alt="Lattafa Asad" loading="lazy"></div>
           <h3 class="cartao__nome">Lattafa Asad</h3>
           <p class="apoio cartao__tecnica">Eau de parfum · 100 ml</p>
@@ -158,7 +188,7 @@
           <p class="cartao__razao">Tabaco, bergamota e couro. O irmão escuro do Khamrah.</p>
         </a>
 
-        <a class="cartao" href="https://s.shopee.com.br/9fKu1mp1Wm" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://s.shopee.com.br/9fKu1mp1Wm" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/perfumaria-05.jpg" alt="Lattafa Yara" loading="lazy"></div>
           <h3 class="cartao__nome">Lattafa Yara</h3>
           <p class="apoio cartao__tecnica">Eau de parfum · 100 ml</p>
@@ -166,7 +196,7 @@
           <p class="cartao__razao">Orquídea e baunilha em cima de heliotrópio. Doce que não enjoa.</p>
         </a>
 
-        <a class="cartao" href="https://s.shopee.com.br/6Al1nIyDMT" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://s.shopee.com.br/6Al1nIyDMT" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/perfumaria-06.jpg" alt="Al Haramain Amber Oud Gold" loading="lazy"></div>
           <h3 class="cartao__nome">Al Haramain Amber Oud Gold</h3>
           <p class="apoio cartao__tecnica">Eau de parfum · 120 ml</p>
@@ -174,7 +204,7 @@
           <p class="cartao__razao">Âmbar e oud em dose cheia. Duas borrifadas bastam para o dia.</p>
         </a>
 
-        <a class="cartao" href="https://s.shopee.com.br/6L4Rzbxa1W" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://s.shopee.com.br/6L4Rzbxa1W" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/perfumaria-07.jpg" alt="Armaf Club de Nuit Milestone" loading="lazy"></div>
           <h3 class="cartao__nome">Armaf Club de Nuit Milestone</h3>
           <p class="apoio cartao__tecnica">Eau de parfum · 105 ml</p>
@@ -194,7 +224,7 @@
 
       <div class="grade">
 
-        <a class="cartao" href="https://s.shopee.com.br/6VNsBuwwgZ" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://s.shopee.com.br/6VNsBuwwgZ" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/cotidiano-01.jpg" alt="Vela aromática" loading="lazy"></div>
           <h3 class="cartao__nome">Vela aromática</h3>
           <p class="apoio cartao__tecnica">Cera vegetal · 100 g</p>
@@ -202,7 +232,7 @@
           <p class="cartao__razao">Cem gramas, tampa de madeira, pote que sobra depois. Acende e a sala muda.</p>
         </a>
 
-        <a class="cartao" href="https://s.shopee.com.br/6fhIODwJLc" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://s.shopee.com.br/6fhIODwJLc" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/cotidiano-02.jpg" alt="Luminária de cúpula" loading="lazy"></div>
           <h3 class="cartao__nome">Luminária de cúpula</h3>
           <p class="apoio cartao__tecnica">LED recarregável · Toque</p>
@@ -210,7 +240,7 @@
           <p class="cartao__razao">Sem fio, três temperaturas, toque para acender. Vai da mesa à cabeceira.</p>
         </a>
 
-        <a class="cartao" href="https://s.shopee.com.br/6q0iaWvg0f" target="_blank" rel="noopener sponsored nofollow">
+        <a class="cartao revelar" href="https://s.shopee.com.br/6q0iaWvg0f" target="_blank" rel="noopener sponsored nofollow">
           <div class="cartao__foto"><img class="cartao__img" src="produtos/imagens/cotidiano-03.jpg" alt="Porta-treco de couro" loading="lazy"></div>
           <h3 class="cartao__nome">Porta-treco de couro</h3>
           <p class="apoio cartao__tecnica">Couro · Bandeja dobrável</p>
@@ -249,10 +279,10 @@
           </ul>
         </div>
         <div>
-          <p class="rotulo rodape__titulo">Políticas</p>
+          <p class="rotulo rodape__titulo">Transpar&ecirc;ncia</p>
           <ul class="rodape__lista">
-            <li><a class="rodape__link" href="curador.html#politicas">Trocas e devoluções</a></li>
-            <li><a class="rodape__link" href="curador.html#politicas">Entrega</a></li>
+            <li><a class="rodape__link" href="curador.html#politicas">Como a ALTIVA ganha</a></li>
+            <li><a class="rodape__link" href="curador.html#politicas">Compra e entrega</a></li>
             <li><a class="rodape__link" href="curador.html#politicas">Privacidade</a></li>
           </ul>
         </div>
@@ -268,11 +298,96 @@
         <span class="rodape__sep" aria-hidden="true">·</span>
         <a class="rodape__link" href="https://www.tiktok.com/@altiva.pick" rel="noreferrer">TikTok @altiva.pick</a>
       </p>
-      <p class="apoio">ALTIVA · Curadoria de moda, perfumaria e cotidiano.</p>
-      <p class="apoio">Usamos cookies para o site funcionar. Só isso.</p>
+      <p class="apoio">ALTIVA &middot; Curadoria de moda, perfumaria e cotidiano. N&atilde;o vendemos: indicamos.</p>
+      <p class="apoio">Os links de compra s&atilde;o links de afiliado do Mercado Livre e da Shopee. Site est&aacute;tico, sem cadastro e sem cookie de rastreio.</p>
     </div>
   </div>
 </footer>
+
+<!-- __vitrine_js -->
+<script>
+/* Vitrine, revelacao ao rolar e marcacao da secao na navegacao.
+   Tudo respeita prefers-reduced-motion. Sem biblioteca. */
+(function(){
+  var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- vitrine do hero --- */
+  var v = document.getElementById('vitrine');
+  if (v) {
+    var quadros = [].slice.call(v.querySelectorAll('.vitrine__quadro'));
+    var marcas  = [].slice.call(v.querySelectorAll('.vitrine__marca'));
+    var secao = v.querySelector('.vitrine__secao');
+    var nome  = v.querySelector('.vitrine__nome');
+    var preco = v.querySelector('.vitrine__preco');
+    var i = 0, parado = false, timer = null;
+
+    function mostra(n){
+      i = (n + quadros.length) % quadros.length;
+      quadros.forEach(function(q, k){
+        var on = (k === i);
+        q.classList.toggle('is-ativo', on);
+        q.setAttribute('aria-hidden', on ? 'false' : 'true');
+        q.tabIndex = on ? 0 : -1;
+      });
+      marcas.forEach(function(m, k){
+        m.classList.toggle('is-ativo', k === i);
+        m.setAttribute('aria-current', k === i ? 'true' : 'false');
+      });
+      var q = quadros[i];
+      if (secao) secao.textContent = q.getAttribute('data-secao');
+      if (nome)  nome.textContent  = q.getAttribute('data-nome');
+      if (preco) preco.textContent = q.getAttribute('data-preco');
+    }
+    function liga(){ if (!timer && !reduz && quadros.length > 1) timer = setInterval(function(){ if(!parado) mostra(i+1); }, 4600); }
+    function desliga(){ if (timer) { clearInterval(timer); timer = null; } }
+
+    mostra(0); liga();
+    v.addEventListener('mouseenter', function(){ parado = true; });
+    v.addEventListener('mouseleave', function(){ parado = false; });
+    v.addEventListener('focusin',   function(){ parado = true; });
+    v.addEventListener('focusout',  function(){ parado = false; });
+    marcas.forEach(function(m, k){ m.addEventListener('click', function(){ mostra(k); }); });
+    document.addEventListener('visibilitychange', function(){ document.hidden ? desliga() : liga(); });
+  }
+
+  /* --- revelacao ao rolar --- */
+  var alvos = [].slice.call(document.querySelectorAll('.revelar'));
+  if (!alvos.length) { /* nada */ }
+  else if (reduz || !('IntersectionObserver' in window)) {
+    alvos.forEach(function(e){ e.classList.add('revelado'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var irmaos = [].slice.call(e.target.parentNode.children);
+        e.target.style.transitionDelay = Math.min(irmaos.indexOf(e.target), 5) * 60 + 'ms';
+        e.target.classList.add('revelado');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    alvos.forEach(function(e){ io.observe(e); });
+  }
+
+  /* --- secao ativa na navegacao --- */
+  var itens = {};
+  [].slice.call(document.querySelectorAll('.nav__item')).forEach(function(a){
+    var m = (a.getAttribute('href') || '').match(/#([a-z]+)$/);
+    if (m) itens[m[1]] = a;
+  });
+  var secoes = ['moda','perfumaria','cotidiano']
+    .map(function(id){ return document.getElementById(id); })
+    .filter(Boolean);
+  if (secoes.length && 'IntersectionObserver' in window) {
+    var io2 = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var a = itens[e.target.id];
+        if (a) a.classList.toggle('is-ativo', e.isIntersecting && e.intersectionRatio > 0.15);
+      });
+    }, { threshold: [0, 0.15, 0.5] });
+    secoes.forEach(function(s){ io2.observe(s); });
+  }
+})();
+</script>
 
 </body>
 </html>
